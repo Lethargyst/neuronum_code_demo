@@ -1,0 +1,11 @@
+name: neuronum
+
+environment:
+  sdk: '>=3.3.3 <4.0.0'
+
+dev_dependencies:
+  mason_cli: ^0.1.0-dev.55
+dependencies:
+  mason: ^0.1.0
+  build_runner: ^2.4.13
+  melos: ^7.0.0-dev.2

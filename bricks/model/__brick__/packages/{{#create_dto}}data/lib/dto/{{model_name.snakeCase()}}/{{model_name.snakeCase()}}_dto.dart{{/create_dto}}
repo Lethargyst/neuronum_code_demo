@@ -1,0 +1,32 @@
+import 'package:domain/entity/{{model_name.snakeCase()}}/{{model_name.snakeCase()}}.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+part '{{model_name.snakeCase()}}_dto.g.dart';
+
+/// Описание DTO
+@JsonSerializable()
+class {{model_name.pascalCase()}}Dto {
+  /// Описание поля
+  final String exampleField;
+
+  const {{model_name.pascalCase()}}Dto({required this.exampleField});
+
+  factory {{model_name.pascalCase()}}Dto.fromJson(Map<String, dynamic> json) => _${{model_name.pascalCase()}}DtoFromJson(json);
+
+  static List<{{model_name.pascalCase()}}Dto> fromJsonList(List<dynamic> json) =>
+    json.map((e) => {{model_name.pascalCase()}}Dto.fromJson(e as Map<String, dynamic>)).toList();
+
+  Map<String, dynamic> toJson() => _${{model_name.pascalCase()}}DtoToJson(this);
+
+  factory {{model_name.pascalCase()}}Dto.fromEntity({{model_name.pascalCase()}} entity) => {{model_name.pascalCase()}}Dto(
+    exampleField: entity.exampleField,
+  );
+
+  {{model_name.pascalCase()}} toEntity() => {{model_name.pascalCase()}}(
+    exampleField: exampleField,
+  );
+}
+
+extension Parser on List<{{model_name.pascalCase()}}Dto> {
+  List<{{model_name.pascalCase()}}> toEntity() => map((e) => e.toEntity()).toList();
+}

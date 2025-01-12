@@ -1,0 +1,13 @@
+{
+    "emptyValidation": "Поле обязательно для заполнения",
+    "incorrectEmail": "Неверный формат адреса",
+    "incorrectPhone": "Неверный формат телефона",
+    "emptyPassword": "Пароль не должен быть пустым",
+    "validateName": "Некорректный формат",
+    "incorrectCardNumber": "Некорректный номер карты",
+    "incorrectCardValidityPeriod": "Некорректный срок действия карты",
+    "incorrectCvv": "Некорректный CVV карты",
+    "minPasswordLength": "Минимальная длина пароля - 6 символов",
+    "correctPasswordSymblos": "Допустимые символы: цифры, латиница, спецсимволы ~!@#%^&*_-+='|\\(){}[]:;<>,.?/",
+    "passwordsNotMatch": "Пароли не совпадают"
+}

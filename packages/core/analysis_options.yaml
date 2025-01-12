@@ -1,0 +1,210 @@
+include: package:lints/recommended.yaml
+
+analyzer:
+  language:
+    strict-casts: true  # Требуется строгое приведение типа, нельзя использовать dynamic переменные, если не указано иначе
+    strict-inference: true  # Нельзя использовать данные из Iterable типов, если у них не указан тип
+    strict-raw-types: true  # Если у типа есть дженерик, то его нужно указать
+  exclude:
+    - lib/**/*.g.dart
+    - assets/**
+
+linter:
+  rules:
+#   Избегать вызова dynamic полей и методов объекта без проверки типа
+    - avoid_dynamic_calls
+#   Избегать отсутствия кода в else
+    - avoid_empty_else
+#   Избегать использоватья print
+    - avoid_print
+#   Избегать медленных методов из dart:io
+    - avoid_slow_async_io
+#   Избегать типы в именах переменных
+    - avoid_types_as_parameter_names
+#   Избегать библиотеки для web
+    - avoid_web_libraries_in_flutter
+#   Всегда указывать тип возвращаемого значения у методов
+    - always_declare_return_types
+#   Отменять подписки на стримы
+    - cancel_subscriptions
+#   Закрывать инстансы из dart.core.Sink
+    - close_sinks
+#   Если у Iterable типа указан тип данных, то все методы работы с ним (add, remove и т.д.)
+#   должны работать с таким же типом
+    - collection_methods_unrelated_type
+#   Избегать finally у блока try
+    - control_flow_in_finally
+#   Избегать отсутствия логики после выражения if
+    - empty_statements
+#   Избегать использования Deprecated параметров в этом же пакете
+    - deprecated_member_use_from_same_package
+#   Не использовать Future в неасинхронных методах
+    - discarded_futures
+#   Не использовать в комментариях ссылки на что-либо (квадратные скобки []),
+#   если файл не знает этих данных
+    - comment_references
+    #   Всегда переопределять метод hash, если переопределил == и наоборот
+    - hash_and_equals
+#   Не использовать значения true и false напрямую внутри if (а так же очевидные, по типу 0 != 1)
+    - literal_only_boolean_expressions
+#   Не использовать соседние строки в списке (https://dart.dev/tools/linter-rules/no_adjacent_strings_in_list)
+    - no_adjacent_strings_in_list
+#   Не дублировать условия в switch case
+    - no_duplicate_case_values
+#   Не писать логику внутри метода createState
+    - no_logic_in_create_state
+#   Не приравнивать переменную саму к себе без изменений
+    - no_self_assignments
+#   Не использовать подстановочные переменные (_) в логике кода
+    - no_wildcard_variable_uses
+#   Использовать ключевое слово void вместо Null
+    - prefer_void_to_null
+#   Не использовать некорректные сравнения в switch case (https://dart.dev/tools/linter-rules/invalid_case_patterns)
+    - invalid_case_patterns
+#   Внутри переопределённого метода == делать сравнение типов, вместо простого приведения
+    - test_types_in_equals
+#   Не использовать throw внутри finally
+    - throw_in_finally
+#   Избегать использования бесполезных выражений (например method;, вместо method.call();)
+    - unnecessary_statements
+#   При сравнении с помощью == использовать только одинаковые типы
+    - unrelated_type_equality_checks
+#   Не использовать небезопасные API HTML
+    - unsafe_html
+#   При написании виджета не забывать добавлять в конструктор super.key
+    - use_key_in_widget_constructors
+#   Не обращаться к контексту виджета после асинхронных операций
+    - use_build_context_synchronously
+#   Использовать валидные регулярки
+    - valid_regexps
+#   С throw использовать только классы Exception, Error и их наследников
+    - only_throw_errors
+#   Если класс можно переписать как enum, то сделать из него enum
+    - use_enums
+#   В конструкторах required параметры ставить первыми
+    - always_put_required_named_parameters_first
+#   Помечать аннотацией переопределённые поля и методы
+    - annotate_overrides
+#   Избегать прямого использования true и false в условных выражениях
+    - avoid_bool_literals_in_conditional_expressions
+#   В try catch перехватывать Exception вместо Error и его наследников
+    - avoid_catching_errors
+#   Избегать написания классов, у которых все поля и методы статические
+    - avoid_classes_with_only_static_members
+#   Не переопределять метод hashCode и == в классах, которые не помечены аннотацией @immutable
+    - avoid_equals_and_hash_code_on_mutable_classes
+#   Избегать использования \' в строках
+    - avoid_escaping_inner_quotes
+#   Избегать ключевое слово final в параметрах методов
+    - avoid_final_parameters
+#   Вместо метода forEach использовать for
+    - avoid_function_literals_in_foreach_calls
+#   Избегать имплементации классов, в которых переопределён == (наследование разрешается)
+    - avoid_implementing_value_types
+#   При инициализации не приравнивать nullable переменную к null
+    - avoid_init_to_null
+#   Избегать инициализации нескольких значений в одной строке
+    - avoid_multiple_declarations_per_line
+#   Не делать сравнение на null в переопределении ==
+    - avoid_null_checks_in_equality_operators
+    - prefer_const_constructors
+#   Избегать приватных typedef, если они используются только один раз
+    - avoid_private_typedef_functions
+#   Не передавать аргумент в метод или конструктор, если он 100% совпадает с дефолтным значением
+    - avoid_redundant_argument_values
+#   Не менять имена параметров методов, если он был переопределён
+    - avoid_renaming_method_parameters
+#   Не указывать для сеттеров тип возвращаемых данных
+    - avoid_return_types_on_setters
+#   Не возвращать null в void методах
+    - avoid_returning_null_for_void
+#   Не возвращать this
+    - avoid_returning_this
+#   Не указывать тип параметров в замыканиях
+    - avoid_types_on_closure_parameters
+#   Избегать использования контейнеров без надобности
+    - avoid_unnecessary_containers
+#   Не передавать в конструктор неиспользуемые параметры
+    - avoid_unused_constructor_parameters
+#   Не помечать void функции как асинхронные (вместо этого использовать Future<void>)
+    - avoid_void_async
+#   Использовать await только для асинхронных методов
+    - await_only_futures
+#   Не забывать проверку на null при приведении типов
+    - cast_nullable_to_non_nullable
+#   const переменные называть в lowerCamelCase
+    - constant_identifier_names
+#   При пометке класса как deprecated, его конструктор должен быть помечен как deprecated
+#   Если поле deprecated, то и параметр в конструкторе должен быть deprecated
+    - deprecated_consistency
+#   Избегать пустых catch после try (но можно использовать как catch(_) { })
+    - empty_catches
+#   Убирать пустое тело конструктора
+    - empty_constructor_bodies
+#    - flutter_style_todos
+#   Вместо методов использовать оператор присваивания, если это возможно
+    - join_return_with_assignment
+#   В конструкторах классаов-наследников передавать super параметры в том же порядке, в каком они
+#   находятся в родительском классе
+    - matching_super_parameters
+#   Если String записана в несколько строк, не забывать добавлять пробел перед следующей строкой
+    - missing_whitespace_between_adjacent_strings
+#   В if и while не сравнивать булевы переменные с true или false
+    - no_literal_bool_comparisons
+#   Не использовать бесполезные операции (например: intValue.toInt())
+    - noop_primitive_operations
+#   Не указывать явно тип локальных переменных (то есть не double a = 5, а final a = 5)
+    - omit_local_variable_types
+#   Не изменять значения параметров, переданных в метод
+    - parameter_assignments
+#   Помещать assert не в тело конструктора, а в список инициализаций
+    - prefer_asserts_in_initializer_lists
+#   Использовать assert вместе с сообщением
+    - prefer_asserts_with_message
+#   Если статический метод можно заменить на конструктор - то так и делать
+    - prefer_constructors_over_static_methods
+#   Использовать строчный метод вместо блочного, если это возможно
+    - prefer_expression_function_bodies
+#   Внутри for вместо var использовать final
+    - prefer_final_in_for_each
+#   Внутри Iterable переменных использовать if вместо условного выражения (если возможно)
+    - prefer_if_elements_to_conditional_expressions
+#   При инициализации переменных использовать int значения, если это возможно (double a = 5)
+    - prefer_int_literals
+#   У объекта метода вместо проверки на null использовать оператор ? (func?.call())
+    - prefer_null_aware_method_calls
+#   Ставить запятую в конце параметров метода, если они не помещаются в одну строку
+    - require_trailing_commas
+#   В конструктор сначала неименованные параметры
+    - sort_unnamed_constructors_first
+#   В фабричных конструкторах вместо проверки на null с помощью assert
+#   передавать в этот конструктор переменную такого же типа, но не нулабельную
+    - tighten_type_of_initializing_formals
+#   У параметров метода указывать их тип
+    - type_annotate_public_apis
+#   Не ставить ненужный await у return
+    - unnecessary_await_in_return
+#   Не использовать ненужные break
+    - unnecessary_breaks
+#   Не создавать лямбда-функцию, если можно передать метод как объект
+    - unnecessary_lambdas
+#   Не использовать скобки там, где можно обойтись без них
+    - unnecessary_parenthesis
+#   Использовать ColoredBox вместо Container, если это возможно
+    - use_colored_box
+#   Использовать DecoratedBox вместо Container, если это возможно
+    - use_decorated_box
+#   Использовать if-null операторы, чтобы сконвертировать null в bool
+    - use_if_null_to_convert_nulls_to_bools
+#   Использовать геттеры isEven и isOdd вместо проверки остатка
+    - use_is_even_rather_than_modulo
+#   Использовать именованные константы вместо значения, если это возможно
+    - use_named_constants
+#   Использовать необработанные строки, чтобы не использовать оператор \
+    - use_raw_strings
+#   Использовать StringBuffer для создания строки, вместо изменения одного String значения
+    - use_string_buffers
+#   Использовать названия 'to...()' и 'as...()' для методов конвертации
+    - use_to_and_as_if_applicable
+#   Не записывать данные в void переменные
+    - void_checks

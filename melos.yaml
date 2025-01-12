@@ -1,0 +1,74 @@
+name: altay_seed_melos
+
+packages:
+  - apps/**
+  - packages/**
+
+scripts:
+  get_and_build:
+    description: Загрузка всех пакетов и запуск кодогенерации
+    run: >
+      melos run pub_get &&
+      melos run build_all
+
+  pub_get:
+    description: Загрузка пакетов в проектах
+    run: melos run dart_get && melos run flutter_get
+
+  dart_get_exec:
+    description: Скрипт для зашрузки пакетов для dart-проектов
+    exec: dart pub get
+    packageFilters:
+      ignore:
+        '*seeds_altay*'
+
+  dart_get:
+    description: Запуск сразу всех загрузок пакетов для dart-проектов
+    run: melos run dart_get_exec --no-select
+
+  flutter_get:
+    description: Загрузка пакетов для flutter-проектов
+    exec: flutter pub get
+    packageFilters:
+      flutter: true
+
+  build_all:
+    description: Запуск всей кодогенерации в проекте
+    run: >
+      melos run build_runner &&
+      melos run slang_runner &&
+      melos run fluttergen_runner
+
+  build_runner:
+    description: Запуск build_runner
+    exec: dart run build_runner build --delete-conflicting-outputs
+
+  slang_runner:
+    description: Запуск генерации slang
+    run: >
+      melos run slang:web &&
+      melos run slang:common
+
+  slang:web:
+    description: Запуск генерации slang (В Web-слое)
+    exec: dart run slang
+    packageFilters:
+      flutter: true
+
+  slang:common:
+    description: Запуск генерации slang (В Common-слое)
+    exec: dart run slang
+    packageFilters:
+      scope:
+        '*common*'
+
+  fluttergen_runner:
+    description: Запуск генерации fluttergen
+    exec: fluttergen
+    packageFilters:
+      flutter: true
+
+  fix:
+    description: Исправление мелких недочётов в коде
+    exec: dart fix --apply
+

@@ -1,0 +1,20 @@
+name: repository
+description: Шаблон для генерации репозитория (интерфейса и реализации)
+
+version: 0.1.0+1
+
+environment:
+  mason: ">=0.1.0-dev.53"
+
+vars:
+  repository_name:
+    type: string
+    description: Название репозитория
+    default: Example
+    prompt: Название репозитория
+  http_with_auth:
+    type: boolean
+    description: Http сервис с авторизацией
+    default: true
+    prompt: Http сервис с авторизацией?
+

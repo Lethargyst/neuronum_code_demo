@@ -1,0 +1,31 @@
+name: common
+description: A sample command-line application.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.3.3
+
+dependencies:
+  core:
+    path: ../core
+  domain:
+    path: ../domain
+
+  bloc: ^8.1.4
+  build_runner: ^2.4.9
+  equatable: ^2.0.5
+  slang: ^3.30.2
+  dartz: ^0.10.1
+  dio: ^5.4.3+1
+  get_it: ^7.7.0
+  injectable: ^2.4.0
+  rxdart: ^0.27.7
+  mutex: ^3.1.0
+  crypto: ^3.0.3
+
+dev_dependencies:
+  flutter_lints: ^3.0.0
+  injectable_generator: ^2.6.1
+  lints: ^3.0.0
+  test: ^1.24.0

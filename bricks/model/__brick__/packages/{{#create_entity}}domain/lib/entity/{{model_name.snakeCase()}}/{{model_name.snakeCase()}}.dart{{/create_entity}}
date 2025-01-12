@@ -1,0 +1,20 @@
+import 'package:equatable/equatable.dart';
+
+/// Описание Entity
+class {{model_name.pascalCase()}} extends Equatable {
+  /// Описание поля
+  final String exampleField;
+
+  const {{model_name.pascalCase()}}({
+    required this.exampleField,
+  });
+
+  {{model_name.pascalCase()}} copyWith({
+    String? exampleField,
+  }) => {{model_name.pascalCase()}}(
+    exampleField: exampleField ?? this.exampleField,
+  );
+
+  @override
+  List<Object?> get props => [exampleField];
+}

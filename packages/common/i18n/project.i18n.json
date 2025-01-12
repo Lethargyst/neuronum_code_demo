@@ -1,0 +1,5 @@
+{
+    "exportExcel": "Экспорт Excel",
+    "exportCsv": "Экспорт CSV",
+    "table": "Таблица №${index}"
+}

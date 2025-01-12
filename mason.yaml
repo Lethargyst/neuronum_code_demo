@@ -1,0 +1,7 @@
+bricks:
+  screen:
+    path: bricks/screen
+  repository:
+    path: bricks/repository
+  model:
+    path: bricks/model

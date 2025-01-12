@@ -1,0 +1,9 @@
+{
+    "login": "Логин",
+    "enterEmail": "Введите почту", 
+    "password": "Пароль",
+    "enterPassword": "Введите пароль", 
+    "signIn": "Войти",
+    "invalidCredentials": "Некорректный формат данных",
+    "wrongCredentials": "Неверые логин или пароль"
+}
