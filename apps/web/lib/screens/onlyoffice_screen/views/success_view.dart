@@ -46,7 +46,7 @@ class _SuccessViewState extends State<_SuccessView> {
           <meta http-equiv=”Pragma” content=”no-cache”>
           <meta http-equiv=”Expires” content=”-1″>
           <meta http-equiv=”CACHE-CONTROL” content=”NO-CACHE”>
-          <script type="text/javascript" src="https://lvmlabs.ru/web-apps/apps/api/documents/api.js"></script>
+          <script type="text/javascript" src="${AppConfig().onlyOfficeDomain}/web-apps/apps/api/documents/api.js"></script>
           <title>Document</title>
           <style>
             html, body {sadsadsad
