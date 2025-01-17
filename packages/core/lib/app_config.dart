@@ -17,4 +17,5 @@ class AppConfig {
   }
 
   String get domain => _env.domain;
+  String get onlyOfficeDomain => _env.domain.replaceFirst('/api', '');
 }
